@@ -1,0 +1,41 @@
+{
+	"authHost": "http://boardcasting/",
+	"authEndpoint": "",
+	"clients": [
+		{
+			"appId": "d7fc8672d245e1c7",
+			"key": "839b2475370d9a7e7f69e334139c8621"
+		},
+		{
+			"appId": "21171310743dfde6",
+			"key": "b5a54c32209fd8471feb9ca597dca2f5"
+		}
+	],
+	"database": "redis",
+	"databaseConfig": {
+		"redis": {
+			"port": "6379",
+			"host": "boardcasting"
+		},
+		"sqlite": {
+			"databasePath": "/database/laravel-echo-server.sqlite"
+		}
+	},
+	"devMode": true,
+	"host": null,
+	"port": "6001",
+	"protocol": "http",
+	"socketio": {
+		"wsEngine": "uws"
+	},
+	"sslCertPath": "",
+	"sslKeyPath": "",
+	"sslCertChainPath": "",
+	"sslPassphrase": "",
+	"apiOriginAllow": {
+		"allowCors": false,
+		"allowOrigin": "",
+		"allowMethods": "",
+		"allowHeaders": ""
+	}
+}
