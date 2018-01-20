@@ -6,9 +6,15 @@ use App\Message;
 use App\Events\MessagePosted;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use FBReviews;
 
 class ChatController extends Controller
 {
+    public function home() {
+        $reviwes = FBReviews::getByUrl("https://www.facebook.com/AsdfTest2-1971208116484194/");
+        return view('home', ['reviwes' => $reviwes]);
+    }
+    
     public function messagesGet(Request $request) {
         return Message::with('user')->get();
     }

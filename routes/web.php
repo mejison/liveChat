@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('chat');
-})->middleware('api');
+use Mejison\FbReview\Facades\ShortLink;
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'ChatController@home');

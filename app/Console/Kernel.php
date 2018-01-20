@@ -24,8 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->command('fbreview:scrap')
+            ->timezone(config('fbreview.fb_timezone'))
+            ->dailyAt(config('fbreview.fb_daily_at'));
     }
 
     /**
