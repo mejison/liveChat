@@ -164,8 +164,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
-        DivArt\FBReviews\FBReviewsServiceProvider::class,
-
+        
         /*
          * Package Service Providers...
          */
@@ -230,6 +229,5 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
-        'FBReviews' => DivArt\FBReviews\Facades\FBReviews::class,
     ],
 ];

@@ -11,8 +11,7 @@ use FBReviews;
 class ChatController extends Controller
 {
     public function home() {
-        $reviwes = FBReviews::getByUrl("https://www.facebook.com/AsdfTest2-1971208116484194/");
-        return view('home', ['reviwes' => $reviwes]);
+        return view('chat');
     }
     
     public function messagesGet(Request $request) {

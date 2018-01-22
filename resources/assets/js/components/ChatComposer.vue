@@ -45,23 +45,35 @@
                 messageText : '',
                 attach: '',
                 is_code : false,
-                codeSnippet : ''
+                codeSnippet : '',
+                user : {}
             }
+        },
+        created() {
+            this.getUser();
         },
         methods: {
             sendMessage() {
-                this.$emit('messagesent', {
-                    message : this.messageText,
+                let mainData = this;
+                console.log(mainData.user);
+                mainData.$emit('messagesent', {
+                    message : mainData.messageText,
                     user : {
-                        name: $('.navbar-right .dropdown-toggle').text()
+                        name: mainData.user.name
                     },
-                    attach : this.attach,
+                    attach : mainData.attach,
                     created_at : new Date(),
-                    is_code : this.is_code
+                    is_code : mainData.is_code
                 });
-                this.messageText = "";
-                this.attach = "";
-                this.is_code = false;
+                mainData.messageText = "";
+                mainData.attach = "";
+                mainData.is_code = false;
+            },
+            getUser() {
+                let mainData = this;
+                axios.get('/api/user').then((res) => {
+                    mainData.user = res.data;
+                });
             },
             attachFile(event) {
                 let fd = new FormData(),

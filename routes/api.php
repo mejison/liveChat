@@ -23,6 +23,12 @@ Route::group([
     Route::post('refresh', '\App\Http\Controllers\AuthController@refresh');
     Route::post('me', '\App\Http\Controllers\AuthController@me');
 
+    Route::get('/user', function(){
+        if (auth()->user()) {
+            return \App\User::find(auth()->user()->id);
+        }
+    });
+    
     Route::get('/messages', 'ChatController@messagesGet');
     Route::post('/attachFile', 'ChatController@attachFile');
     Route::post('/messages', 'ChatController@messagesPost');

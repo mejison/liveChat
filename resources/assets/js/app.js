@@ -75,6 +75,6 @@ const app = new Vue({
                     elm.scrollTop = elm.scrollHeight;
                 }, 0);
             }
-        },
+        }
     }
 });

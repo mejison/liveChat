@@ -60977,24 +60977,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             messageText: '',
             attach: '',
             is_code: false,
-            codeSnippet: ''
+            codeSnippet: '',
+            user: {}
         };
+    },
+    created: function created() {
+        this.getUser();
     },
 
     methods: {
         sendMessage: function sendMessage() {
-            this.$emit('messagesent', {
-                message: this.messageText,
+            var mainData = this;
+            console.log(mainData.user);
+            mainData.$emit('messagesent', {
+                message: mainData.messageText,
                 user: {
-                    name: $('.navbar-right .dropdown-toggle').text()
+                    name: mainData.user.name
                 },
-                attach: this.attach,
+                attach: mainData.attach,
                 created_at: new Date(),
-                is_code: this.is_code
+                is_code: mainData.is_code
             });
-            this.messageText = "";
-            this.attach = "";
-            this.is_code = false;
+            mainData.messageText = "";
+            mainData.attach = "";
+            mainData.is_code = false;
+        },
+        getUser: function getUser() {
+            var mainData = this;
+            axios.get('/api/user').then(function (res) {
+                mainData.user = res.data;
+            });
         },
         attachFile: function attachFile(event) {
             var fd = new FormData(),
